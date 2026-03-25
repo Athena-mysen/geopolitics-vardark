@@ -17,6 +17,9 @@ Iran Conflict Tracker — geopolitics.vardark.no
 - Mobil-responsivt
 - Kildeangivelser for alle estimater
 
+## Learnings
+Les `LEARNINGS.md` — akkumulerte feil og lærdommer fra tidligere økter. Oppdater den etter hver kodeøkt med det du lærte.
+
 ## Før push
 1. Åpne `index.html` lokalt og sjekk alle tabs
 2. Test mobil viewport
