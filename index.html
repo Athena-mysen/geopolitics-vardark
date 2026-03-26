@@ -3,18 +3,907 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Iran Conflict Daily Briefing</title>
+<title>Iran Conflict Tracker — March 25, 2026</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/3.0.1/chartjs-plugin-annotation.min.js"></script>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f1117;color:#e0e0e0;padding:24px;line-height:1.6}h1{color:#f0f0f0;font-size:1.8em;margin-bottom:4px}h2{color:#ccc;font-size:1.3em;margin:32px 0 12px;border-bottom:1px solid #333;padding-bottom:6px}h3{color:#aaa;font-size:1.05em;margin:20px 0 8px}.subtitle{color:#888;font-size:.95em;margin-bottom:24px}.charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}.chart-box{background:#1a1d27;border-radius:12px;padding:20px;border:1px solid #2a2d3a}.chart-box.full{grid-column:1/-1}.chart-title{color:#ccc;font-size:.95em;margin-bottom:12px;font-weight:600}canvas{width:100%!important}.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}.kpi{background:#1a1d27;border-radius:12px;padding:16px 20px;border:1px solid #2a2d3a;text-align:center}.kpi-value{font-size:2em;font-weight:700}.kpi-label{font-size:.8em;color:#888;margin-top:4px}.kpi-delta{font-size:.85em;margin-top:4px}.red{color:#ff6b6b}.orange{color:#ffa94d}.yellow{color:#ffe066}.analysis-box{background:#1a1d27;border-radius:12px;padding:20px 24px;border:1px solid #2a2d3a;margin-bottom:16px}.analysis-box p{margin-bottom:12px}.tag{display:inline-block;padding:2px 10px;border-radius:12px;font-size:.8em;font-weight:600;margin-right:6px}.tag-red{background:rgba(255,107,107,.15);color:#ff6b6b}.tag-orange{background:rgba(255,169,77,.15);color:#ffa94d}.tag-yellow{background:rgba(255,224,102,.15);color:#ffe066}.sources{margin-top:24px;font-size:.8em;color:#666}.sources a{color:#74c0fc;text-decoration:none}.caveat{background:rgba(255,169,77,.08);border-left:3px solid #ffa94d;padding:12px 16px;border-radius:0 8px 8px 0;margin:16px 0;font-size:.9em;color:#ccc}@media(max-width:768px){.charts-grid{grid-template-columns:1fr}.kpi-row{grid-template-columns:repeat(2,1fr)}}
-</style></head><body>
-<h1>Iran Conflict Munitions Tracker</h1>
-<p class="subtitle">Daily Briefing — March 24, 2026 (Day 25) | Conflict start: February 28, 2026</p>
-<div class="kpi-row"><div class="kpi"><div class="kpi-value red">5,486</div><div class="kpi-label">Total Munitions Fired</div><div class="kpi-delta" style="color:#888">24 days of data</div></div><div class="kpi"><div class="kpi-value orange">~3/day</div><div class="kpi-label">Current Missile Rate</div><div class="kpi-delta red">&#9660; 99% from peak</div></div><div class="kpi"><div class="kpi-value yellow">~40/day</div><div class="kpi-label">Current Drone Rate</div><div class="kpi-delta red">&#9660; 94% from peak</div></div><div class="kpi"><div class="kpi-value" style="color:#ff6b6b">67%</div><div class="kpi-label">Current Intercept Rate</div><div class="kpi-delta red">&#9660; from 92% on day 1</div></div></div>
-<div class="charts-grid"><div class="chart-box full"><div class="chart-title">Daily Munitions Fired by Type</div><canvas id="dailyMunitions" height="90"></canvas></div><div class="chart-box"><div class="chart-title">Intercept Rate Over Time (%)</div><canvas id="interceptRate" height="140"></canvas></div><div class="chart-box"><div class="chart-title">Cumulative Munitions by Type</div><canvas id="cumulativeBar" height="140"></canvas></div><div class="chart-box"><div class="chart-title">Daily Hits vs. Intercepts</div><canvas id="hitsVsIntercepts" height="140"></canvas></div><div class="chart-box"><div class="chart-title">Missile vs. Drone Mix (%)</div><canvas id="mixChart" height="140"></canvas></div></div>
-<h2>Analysis</h2><div class="analysis-box"><h3><span class="tag tag-red">NEAR DEPLETED</span> Iranian Ballistic Missiles</h3><p>Fire rate collapsed 99% from 480/day to ~3/day.</p><h3><span class="tag tag-yellow">SUSTAINED LOW</span> Iranian Drone Operations</h3><p>Stabilized at ~40-47/day, suggesting ongoing production.</p><h3><span class="tag tag-orange">DECLINING</span> Defender Intercept Rates</h3><p>Dropped from 92% to ~67%. THAAD projected exhausted by day 16.</p><h3><span class="tag tag-orange">KEY QUESTION</span> The Attrition Race</h3><p>Can Iran's drone production outlast defender interceptor supplies?</p></div>
-<div class="caveat"><strong>Data caveats:</strong> Estimates based on cumulative totals and interpolation. Fog of war applies.</div>
-<h2>Sources</h2><div class="sources"><p><a href="https://www.jpost.com/defense-and-tech/article-889435">JPost</a> | <a href="https://www.fpri.org/article/2026/03/over-5000-munitions-shot-in-the-first-96-hours-of-the-iran-war/">FPRI</a> | <a href="https://www.cnn.com/2026/03/04/politics/missiles-weapons-stockpile-iran-us-war">CNN</a> | <a href="https://time.com/7382582/trump-iran-war-weapons-stockpiles/">TIME</a> | <a href="https://www.aljazeera.com/news/2026/3/16/us-says-it-has-destroyed-iran-missile-capacity-how-is-iran-still-shooting">Al Jazeera</a> | <a href="https://news.usni.org/2026/03/19/report-to-congress-on-u-s-munitions-and-missile-defense-amid-iran-conflict">USNI</a></p></div>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0d1117;
+    color: #e0e0e0;
+    padding: 28px 32px;
+    line-height: 1.6;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* ── Header ─────────────────────────────────────── */
+  .header { margin-bottom: 20px; border-bottom: 1px solid #21262d; padding-bottom: 18px; }
+  .header-top { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  h1 { color: #f0f6fc; font-size: 1.85em; font-weight: 700; letter-spacing: -0.02em; }
+  .conflict-badge {
+    background: rgba(248,81,73,0.12);
+    border: 1px solid rgba(248,81,73,0.3);
+    color: #f85149;
+    font-size: 0.75em; font-weight: 600;
+    padding: 3px 10px; border-radius: 20px;
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .subtitle { color: #8b949e; font-size: 0.9em; margin-top: 6px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .subtitle-sep { color: #30363d; }
+
+  /* ── Day strip ───────────────────────────────────── */
+  .day-strip { display: flex; gap: 12px; margin-bottom: 20px; align-items: center; }
+  .day-counter {
+    background: linear-gradient(135deg, #1c2333, #161b22);
+    border: 1px solid #30363d; border-radius: 10px;
+    padding: 10px 20px; display: flex; flex-direction: column;
+    align-items: center; min-width: 78px;
+  }
+  .day-number { font-size: 2.2em; font-weight: 800; color: #58a6ff; line-height: 1; }
+  .day-label  { font-size: 0.7em; color: #8b949e; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 2px; }
+  .day-since  { color: #8b949e; font-size: 0.85em; }
+  .day-since strong { color: #e0e0e0; }
+
+  /* ── Tab nav ─────────────────────────────────────── */
+  .tab-nav {
+    display: flex; gap: 4px;
+    border-bottom: 1px solid #21262d;
+    margin-bottom: 24px;
+  }
+  .tab-btn {
+    background: none; border: none; cursor: pointer;
+    color: #8b949e; font-size: 0.9em; font-weight: 500;
+    padding: 10px 20px; border-radius: 6px 6px 0 0;
+    border: 1px solid transparent; border-bottom: none;
+    transition: all 0.15s; margin-bottom: -1px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .tab-btn:hover { color: #c9d1d9; background: rgba(255,255,255,0.04); }
+  .tab-btn.active {
+    color: #f0f6fc; background: #161b22;
+    border-color: #21262d; border-bottom-color: #161b22;
+    box-shadow: inset 0 -3px 0 #58a6ff;
+  }
+  .tab-icon { font-size: 1em; }
+  .tab-pane { display: none; }
+  .tab-pane.active { display: block; }
+
+  /* ── KPI cards ───────────────────────────────────── */
+  .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
+  .kpi {
+    background: #161b22; border-radius: 10px;
+    padding: 18px 20px; border: 1px solid #21262d; border-top-width: 3px;
+  }
+  .kpi.accent-red    { border-top-color: #f85149; }
+  .kpi.accent-orange { border-top-color: #d29922; }
+  .kpi.accent-yellow { border-top-color: #e3b341; }
+  .kpi.accent-blue   { border-top-color: #388bfd; }
+  .kpi.accent-green  { border-top-color: #3fb950; }
+  .kpi.accent-purple { border-top-color: #a371f7; }
+  .kpi-icon  { font-size: 1.1em; margin-bottom: 6px; opacity: 0.7; }
+  .kpi-value { font-size: 2em; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
+  .kpi-label { font-size: 0.78em; color: #8b949e; margin-top: 5px; font-weight: 500; }
+  .kpi-delta { font-size: 0.82em; margin-top: 5px; }
+  .kpi-status {
+    display: inline-block; font-size: 0.68em; font-weight: 700;
+    padding: 2px 7px; border-radius: 4px; margin-top: 6px;
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+
+  .red    { color: #f85149; }
+  .orange { color: #d29922; }
+  .yellow { color: #e3b341; }
+  .blue   { color: #388bfd; }
+  .green  { color: #3fb950; }
+  .purple { color: #a371f7; }
+
+  .status-exhausted { background: rgba(248,81,73,0.15); color: #f85149; border: 1px solid rgba(248,81,73,0.3); }
+  .status-critical  { background: rgba(210,153,34,0.15); color: #d29922; border: 1px solid rgba(210,153,34,0.3); }
+  .status-low       { background: rgba(227,179,65,0.15); color: #e3b341; border: 1px solid rgba(227,179,65,0.3); }
+  .status-active    { background: rgba(63,185,80,0.12);  color: #3fb950; border: 1px solid rgba(63,185,80,0.25); }
+
+  /* ── Charts ──────────────────────────────────────── */
+  .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .chart-box {
+    background: #161b22; border-radius: 10px;
+    padding: 20px 20px 14px; border: 1px solid #21262d;
+  }
+  .chart-box.full { grid-column: 1 / -1; }
+  .chart-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; }
+  .chart-title { color: #c9d1d9; font-size: 0.88em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+  .chart-note  { color: #6e7681; font-size: 0.75em; }
+  canvas { width: 100% !important; }
+
+  .log-toggle {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.75em; color: #6e7681; cursor: pointer; user-select: none;
+    padding: 2px 8px; border: 1px solid #30363d; border-radius: 6px;
+    background: transparent; transition: all 0.15s;
+  }
+  .log-toggle:hover  { color: #58a6ff; border-color: #58a6ff; }
+  .log-toggle.active { color: #58a6ff; border-color: #388bfd; background: rgba(56,139,253,0.1); }
+
+  /* ── Section headers ─────────────────────────────── */
+  h2 {
+    color: #c9d1d9; font-size: 1.05em; margin: 0 0 16px;
+    text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;
+    display: flex; align-items: center; gap: 10px;
+  }
+  h2::after { content: ''; flex: 1; height: 1px; background: #21262d; }
+
+  /* ── Analysis cards ──────────────────────────────── */
+  .analysis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+  .analysis-card {
+    background: #161b22; border-radius: 10px;
+    padding: 18px 20px; border: 1px solid #21262d; border-left-width: 3px;
+  }
+  .analysis-card.border-red    { border-left-color: #f85149; }
+  .analysis-card.border-yellow { border-left-color: #e3b341; }
+  .analysis-card.border-orange { border-left-color: #d29922; }
+  .analysis-card.border-blue   { border-left-color: #388bfd; }
+  .analysis-card.border-green  { border-left-color: #3fb950; }
+  .analysis-card.border-purple { border-left-color: #a371f7; }
+  .analysis-card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .tag {
+    font-size: 0.7em; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .tag-red    { background: rgba(248,81,73,0.15);  color: #f85149; border: 1px solid rgba(248,81,73,0.25); }
+  .tag-orange { background: rgba(210,153,34,0.15); color: #d29922; border: 1px solid rgba(210,153,34,0.25); }
+  .tag-yellow { background: rgba(227,179,65,0.15); color: #e3b341; border: 1px solid rgba(227,179,65,0.25); }
+  .tag-blue   { background: rgba(56,139,253,0.15); color: #388bfd; border: 1px solid rgba(56,139,253,0.25); }
+  .tag-green  { background: rgba(63,185,80,0.12);  color: #3fb950; border: 1px solid rgba(63,185,80,0.25); }
+  .analysis-card-title { color: #c9d1d9; font-size: 0.95em; font-weight: 600; }
+  .analysis-card p { font-size: 0.88em; color: #8b949e; line-height: 1.7; }
+
+  /* ── Methodology box ─────────────────────────────── */
+  .methodology {
+    background: #161b22; border: 1px solid #21262d; border-radius: 10px;
+    padding: 22px 24px; margin-bottom: 24px; font-size: 0.87em;
+  }
+  .methodology h3 { color: #c9d1d9; font-size: 0.95em; margin-bottom: 12px; font-weight: 600; }
+  .methodology p { color: #8b949e; margin-bottom: 10px; line-height: 1.7; }
+  .methodology p:last-child { margin-bottom: 0; }
+  .methodology strong { color: #c9d1d9; }
+  .method-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .method-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.92em; }
+  .method-table th { color: #8b949e; font-weight: 600; text-align: left; padding: 5px 8px; border-bottom: 1px solid #21262d; font-size: 0.9em; text-transform: uppercase; letter-spacing: 0.05em; }
+  .method-table td { color: #c9d1d9; padding: 6px 8px; border-bottom: 1px solid #161b22; vertical-align: top; }
+  .method-table td.muted { color: #6e7681; font-size: 0.92em; }
+  .method-table tr:last-child td { border-bottom: none; }
+
+  /* ── Caveat + Sources ────────────────────────────── */
+  .caveat {
+    background: rgba(210,153,34,0.06); border: 1px solid rgba(210,153,34,0.2);
+    padding: 14px 18px; border-radius: 8px; margin-bottom: 24px;
+    font-size: 0.85em; color: #8b949e;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .caveat-icon { color: #d29922; flex-shrink: 0; margin-top: 1px; }
+  .caveat strong { color: #d29922; }
+  .sources { font-size: 0.82em; }
+  .sources-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 6px; }
+  .source-item { background: #161b22; border: 1px solid #21262d; border-radius: 6px; padding: 8px 12px; }
+  .source-item a { color: #58a6ff; text-decoration: none; display: block; }
+  .source-item a:hover { color: #79c0ff; text-decoration: underline; }
+  .source-outlet { color: #6e7681; font-size: 0.9em; display: block; margin-bottom: 1px; }
+
+  @media (max-width: 900px) {
+    body { padding: 14px; }
+    .charts-grid, .analysis-grid, .method-grid { grid-template-columns: 1fr; }
+    .kpi-row { grid-template-columns: repeat(2, 1fr); }
+    .sources-list { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ SHARED HEADER ══════════════════════════════════════════════════ -->
+<div class="header">
+  <div class="header-top">
+    <h1>Iran Conflict Tracker</h1>
+    <span class="conflict-badge">&#x25CF; Active Conflict</span>
+  </div>
+  <div class="subtitle">
+    <span>Daily Briefing — March 25, 2026</span>
+    <span class="subtitle-sep">|</span>
+    <span>Conflict start: February 28, 2026</span>
+    <span class="subtitle-sep">|</span>
+    <span>Updated: March 25, 2026 · 12:00 UTC</span>
+  </div>
+</div>
+
+<div class="day-strip">
+  <div class="day-counter">
+    <div class="day-number">25</div>
+    <div class="day-label">Day</div>
+  </div>
+  <div class="day-since">
+    <strong>25 days</strong> since conflict began Feb 28 &nbsp;·&nbsp;
+    <strong>5,486</strong> total munitions fired &nbsp;·&nbsp;
+    Missile rate <strong>▼99%</strong> from peak &nbsp;·&nbsp;
+    Intercept rate declined <strong>92% → 67%</strong> &nbsp;·&nbsp;
+    THAAD &amp; Arrow both <strong>exhausted/critical</strong>
+  </div>
+</div>
+
+<!-- ══ TAB NAV ════════════════════════════════════════════════════════ -->
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('munitions', this)">
+    <span class="tab-icon">🚀</span> Munitions Fired
+  </button>
+  <button class="tab-btn" onclick="switchTab('interceptors', this)">
+    <span class="tab-icon">🛡️</span> Interceptor Stocks
+  </button>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════ -->
+<!--  TAB 1 — MUNITIONS                                               -->
+<!-- ══════════════════════════════════════════════════════════════════ -->
+<div id="tab-munitions" class="tab-pane active">
+
+  <div class="kpi-row">
+    <div class="kpi accent-red">
+      <div class="kpi-icon">🎯</div>
+      <div class="kpi-value red">5,486</div>
+      <div class="kpi-label">Total Munitions Fired</div>
+      <div class="kpi-delta" style="color:#6e7681">24 days of confirmed data</div>
+    </div>
+    <div class="kpi accent-orange">
+      <div class="kpi-icon">🚀</div>
+      <div class="kpi-value orange">~3/day</div>
+      <div class="kpi-label">Current Missile Rate</div>
+      <div class="kpi-delta red">▼ 99% from Day 1 peak (480)</div>
+    </div>
+    <div class="kpi accent-yellow">
+      <div class="kpi-icon">✈️</div>
+      <div class="kpi-value yellow">~40/day</div>
+      <div class="kpi-label">Current Drone Rate</div>
+      <div class="kpi-delta red">▼ 94% from Day 1 peak (720)</div>
+    </div>
+    <div class="kpi accent-blue">
+      <div class="kpi-icon">🛡️</div>
+      <div class="kpi-value blue">67%</div>
+      <div class="kpi-label">Current Intercept Rate</div>
+      <div class="kpi-delta red">▼ from 92% on Day 1 (−25 pts)</div>
+    </div>
+  </div>
+
+  <div class="charts-grid">
+    <div class="chart-box full">
+      <div class="chart-header">
+        <span class="chart-title">Daily Munitions Fired by Type</span>
+        <button class="log-toggle" id="logToggle" onclick="toggleLog()">Log scale</button>
+      </div>
+      <canvas id="dailyMunitions" height="100"></canvas>
+    </div>
+    <div class="chart-box">
+      <div class="chart-header">
+        <span class="chart-title">Intercept Rate Over Time (%)</span>
+        <span class="chart-note">Dashed = key thresholds</span>
+      </div>
+      <canvas id="interceptRate" height="180"></canvas>
+    </div>
+    <div class="chart-box">
+      <div class="chart-header"><span class="chart-title">Cumulative Munitions by Type</span></div>
+      <canvas id="cumulativeBar" height="180"></canvas>
+    </div>
+    <div class="chart-box">
+      <div class="chart-header"><span class="chart-title">Daily Hits vs. Intercepts</span></div>
+      <canvas id="hitsVsIntercepts" height="180"></canvas>
+    </div>
+    <div class="chart-box">
+      <div class="chart-header"><span class="chart-title">Weapon Mix — % of Daily Launches</span></div>
+      <canvas id="mixChart" height="180"></canvas>
+    </div>
+  </div>
+
+  <h2>Analysis</h2>
+  <div class="analysis-grid">
+    <div class="analysis-card border-red">
+      <div class="analysis-card-header">
+        <span class="tag tag-red">Near Depleted</span>
+        <span class="analysis-card-title">Iranian Ballistic Missiles</span>
+      </div>
+      <p>Iran's ballistic missile rate collapsed from 480/day on Feb 28 to ~3/day by Mar 23 — a 99% decline. This strongly suggests Iran has exhausted the vast majority of its accessible inventory. Remaining launches likely represent dispersed reserves or newly assembled weapons from surviving production facilities.</p>
+    </div>
+    <div class="analysis-card border-yellow">
+      <div class="analysis-card-header">
+        <span class="tag tag-yellow">Sustained Low</span>
+        <span class="analysis-card-title">Iranian Drone Operations</span>
+      </div>
+      <p>Drone launches fell from 720/day to ~40–47/day but have stabilised in this range through week 4. The plateau suggests ongoing domestic production capacity (likely Shahed-series), even as pre-war stockpiles are depleted. Iran has shifted to a drone-centric strategy targeting Gulf energy infrastructure.</p>
+    </div>
+    <div class="analysis-card border-orange">
+      <div class="analysis-card-header">
+        <span class="tag tag-orange">Declining</span>
+        <span class="analysis-card-title">Defender Intercept Rates</span>
+      </div>
+      <p>Intercept rate dropped from 92% on Day 1 to ~67% by week 4. THAAD stocks exhausted ~Mar 16, Arrow critically low by ~Mar 14. Defenders are now rationing high-end interceptors and relying on less capable systems — the Kuwait refinery strike (38 drones, Mar 21) illustrates the consequences.</p>
+    </div>
+    <div class="analysis-card border-blue">
+      <div class="analysis-card-header">
+        <span class="tag tag-blue">Key Question</span>
+        <span class="analysis-card-title">The Attrition Race</span>
+      </div>
+      <p>Both sides face depletion. Iran has effectively lost its missile deterrent but can sustain drone harassment at low cost. The critical variable is whether Iran's drone production can outlast the defenders' dwindling interceptors — and whether the declining intercept rate leads to unacceptable damage to Gulf energy infrastructure.</p>
+    </div>
+  </div>
+
+  <div class="caveat">
+    <span class="caveat-icon">⚠</span>
+    <span><strong>Data caveats:</strong> Daily figures are estimates based on cumulative totals, known data points, and interpolation. Fog of war means exact numbers vary between sources. Intercept rates are particularly uncertain — what counts as "intercepted" vs. "missed its target" is often ambiguous. This tracker improves in accuracy as more data is cross-referenced over time.</span>
+  </div>
+
+  <h2>Sources</h2>
+  <div class="sources">
+    <div class="sources-list">
+      <div class="source-item"><span class="source-outlet">Jerusalem Post</span><a href="https://www.jpost.com/defense-and-tech/article-889435" target="_blank">Iran's missile fire rate has collapsed by 92%</a></div>
+      <div class="source-item"><span class="source-outlet">FPRI</span><a href="https://www.fpri.org/article/2026/03/over-5000-munitions-shot-in-the-first-96-hours-of-the-iran-war/" target="_blank">Over 5,000 Munitions Shot in the First 96 Hours</a></div>
+      <div class="source-item"><span class="source-outlet">CNN</span><a href="https://www.cnn.com/2026/03/04/politics/missiles-weapons-stockpile-iran-us-war" target="_blank">The war's troubling munitions math</a></div>
+      <div class="source-item"><span class="source-outlet">TIME</span><a href="https://time.com/7382582/trump-iran-war-weapons-stockpiles/" target="_blank">Iran War Burning Through US Weapons Stockpiles</a></div>
+      <div class="source-item"><span class="source-outlet">Al Jazeera</span><a href="https://www.aljazeera.com/news/2026/3/16/us-says-it-has-destroyed-iran-missile-capacity-how-is-iran-still-shooting" target="_blank">How is Iran still shooting?</a></div>
+      <div class="source-item"><span class="source-outlet">Critical Threats</span><a href="https://www.criticalthreats.org/analysis/iran-update-evening-special-report-march-5-2026" target="_blank">Iran Update — March 5, 2026</a></div>
+      <div class="source-item"><span class="source-outlet">Long War Journal</span><a href="https://www.longwarjournal.org/archives/2026/03/iranian-drones-and-missiles-hit-ports-oil-and-gas-facilities-and-us-bases-in-the-region-march-17-19-updates.php" target="_blank">Iranian attacks March 17–19</a></div>
+      <div class="source-item"><span class="source-outlet">USNI News</span><a href="https://news.usni.org/2026/03/19/report-to-congress-on-u-s-munitions-and-missile-defense-amid-iran-conflict" target="_blank">Report to Congress on Munitions and Missile Defense</a></div>
+      <div class="source-item"><span class="source-outlet">Northeastern University</span><a href="https://news.northeastern.edu/2026/03/23/us-israel-war-iran-drones/" target="_blank">The True Price of the Iran War in Week Four</a></div>
+      <div class="source-item"><span class="source-outlet">War on the Rocks</span><a href="https://warontherocks.com/2026/03/dont-count-launches-misreading-irans-drone-capacity/" target="_blank">Don't Count Launches — Misreading Iran's Drone Capacity</a></div>
+      <div class="source-item"><span class="source-outlet">Al Arabiya</span><a href="https://english.alarabiya.net/News/middle-east/2026/03/21/tally-shows-iran-has-launched-far-more-missiles-drones-at-gulf-than-israel" target="_blank">Iran launched far more at Gulf than Israel</a></div>
+    </div>
+  </div>
+
+</div><!-- /tab-munitions -->
+
+
+<!-- ══════════════════════════════════════════════════════════════════ -->
+<!--  TAB 2 — INTERCEPTOR STOCKS                                       -->
+<!-- ══════════════════════════════════════════════════════════════════ -->
+<div id="tab-interceptors" class="tab-pane">
+
+  <div class="kpi-row" id="interceptor-kpis">
+    <!-- populated by JS -->
+  </div>
+
+  <div class="charts-grid">
+    <div class="chart-box full">
+      <div class="chart-header">
+        <span class="chart-title">Estimated Interceptor Inventory Over Time</span>
+        <span class="chart-note">Model estimate — see methodology below</span>
+      </div>
+      <canvas id="invOverTime" height="110"></canvas>
+    </div>
+    <div class="chart-box">
+      <div class="chart-header">
+        <span class="chart-title">% of Starting Inventory Remaining</span>
+        <span class="chart-note">Normalised to Day 1 = 100%</span>
+      </div>
+      <canvas id="invPct" height="185"></canvas>
+    </div>
+    <div class="chart-box">
+      <div class="chart-header">
+        <span class="chart-title">Estimated Daily Interceptor Usage</span>
+      </div>
+      <canvas id="invUsage" height="185"></canvas>
+    </div>
+    <div class="chart-box">
+      <div class="chart-header">
+        <span class="chart-title">Current Days of Stock Remaining</span>
+        <span class="chart-note">At latest day's attack rate</span>
+      </div>
+      <canvas id="invRunway" height="185"></canvas>
+    </div>
+    <div class="chart-box">
+      <div class="chart-header">
+        <span class="chart-title">Estimated Daily Replenishment vs. Consumption</span>
+        <span class="chart-note">PAC-3 &amp; Iron Dome only (others: no resupply)</span>
+      </div>
+      <canvas id="invResupply" height="185"></canvas>
+    </div>
+  </div>
+
+  <h2>Analysis</h2>
+  <div class="analysis-grid">
+    <div class="analysis-card border-red">
+      <div class="analysis-card-header">
+        <span class="tag tag-red">Exhausted</span>
+        <span class="analysis-card-title">THAAD (US / Gulf States)</span>
+      </div>
+      <p>THAAD batteries protecting US bases and Gulf partner nations across Qatar, Bahrain, Kuwait, Saudi Arabia, and the UAE are estimated to have exhausted their theater interceptor magazine around Mar 16 (day 16). The US relocated a THAAD battery from South Korea on Mar 10, but transit and setup time means the replacement interceptors are not yet operational.</p>
+    </div>
+    <div class="analysis-card border-red">
+      <div class="analysis-card-header">
+        <span class="tag tag-red">Critically Low</span>
+        <span class="analysis-card-title">Arrow 2 / Arrow 3 (Israel)</span>
+      </div>
+      <p>Israel's exo-atmospheric Arrow 3 and endo-atmospheric Arrow 2 systems were running critically low by Mar 14 (day 14), confirmed by Semafor citing US officials. Arrow absorbs the most demanding high-altitude ballistic missile threats over Israel — its depletion forces a downgrade to Patriot PAC-3 for terminal defense, increasing leakage risk for fast reentry vehicles.</p>
+    </div>
+    <div class="analysis-card border-orange">
+      <div class="analysis-card-header">
+        <span class="tag tag-orange">Depleting</span>
+        <span class="analysis-card-title">Patriot PAC-3 MSE (Multi-Nation)</span>
+      </div>
+      <p>PAC-3 MSE is the most numerous interceptor in theater, deployed across all Gulf states, Israel, and Jordan. It has borne the largest share of the BM interception burden since Arrow/THAAD depletion. Emergency US resupply (Raytheon quadrupled output via Jan 2026 contract) adds a modest trickle, but consumption far outpaces production. Estimated remaining stock is now a fraction of Day 1 levels.</p>
+    </div>
+    <div class="analysis-card border-green">
+      <div class="analysis-card-header">
+        <span class="tag tag-green">Degraded — Active</span>
+        <span class="analysis-card-title">Iron Dome (Israel / Short-Range)</span>
+      </div>
+      <p>Iron Dome handles the bulk of drone interceptions over Israel and is sustained by active Israeli and joint US–Israeli Tamir production lines. The surge production announced after Oct 7, 2023 means this system is more resilient than the others. However, the shift to drones by Iran as its primary weapon is now directed at Gulf targets outside Iron Dome's geographic range, which cannot be covered by this system.</p>
+    </div>
+  </div>
+
+  <!-- ── METHODOLOGY ────────────────────────────────────────────────── -->
+  <h2>Estimation Methodology</h2>
+  <div class="methodology">
+    <p>Interceptor inventories are classified. All figures on this tab are <strong>modelled estimates</strong> derived from open-source data and calibrated against known public reporting. They carry an estimated uncertainty of <strong>±30–50%</strong> on starting stocks and <strong>±20%</strong> on consumption rates. The purpose is to show directional trends, not precise counts.</p>
+
+    <div class="method-grid">
+      <div>
+        <h3>Starting Inventory Sources</h3>
+        <table class="method-table">
+          <thead><tr><th>System</th><th>Est. Start</th><th>Basis</th></tr></thead>
+          <tbody>
+            <tr><td>THAAD</td><td>350</td><td class="muted">MDA received 534 total (DoD P-21 data); ~100 exported to allies; ~150 used in June 2025 12-Day War (CNN, Military Times) leaving ~284 US; +45 from emergency FY2025 reprogramming ($700M). Theater estimate includes US forward-deployed (4 of 8 batteries in Gulf) + UAE (2 batteries) + partial Saudi deliveries.</td></tr>
+            <tr><td>Arrow 2/3</td><td>170</td><td class="muted">~43 used in June 2025 (34 Arrow-3 + 9 Arrow-2 per WSJ). Israel does not publish stocks. IAI contract Dec 2025 signals low inventory. Expanded production ~24/yr Arrow-3, +16 est. new builds since June 2025. Germany Arrow-3 deal diverted some production. Calibrated to Semafor report of critical depletion by Day 14.</td></tr>
+            <tr><td>Patriot PAC-3</td><td>2,200</td><td class="muted">Multi-nation aggregate (US + 16 FMS partners in theater: Saudi Arabia, UAE, Kuwait, Qatar, Jordan, Israel). Lockheed delivered record 620 PAC-3 MSE in 2025. Based on FMS delivery schedules, SIPRI arms transfer data, and Army Recognition deployment reporting. Accounts for June 2025 expenditure.</td></tr>
+            <tr><td>Iron Dome</td><td>4,000</td><td class="muted">Massive Israeli production surge post-Oct 2023; $1.25B Rafael/Raytheon Tamir order (Nov 2025); US Arkansas co-production plant operational Nov 2025; multi-year stockpiling funded by $5.2B US air defense aid package (Apr 2024).</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3>Consumption Model</h3>
+        <p>Each day's consumption is calculated from the munitions data (Tab 1) using system-specific engagement fractions, a geographic allocation, and a <strong>shots-per-kill (spk)</strong> multiplier reflecting real-world doctrine of firing multiple interceptors per target:</p>
+        <table class="method-table">
+          <thead><tr><th>System</th><th>Engages</th><th>Fraction</th><th>spk</th></tr></thead>
+          <tbody>
+            <tr><td>THAAD</td><td class="muted">Upper-tier BMs targeting Gulf/US bases (~60% of all BMs)</td><td>~24% of Gulf-targeted BMs = ~15% of total BMs</td><td>1.3×</td></tr>
+            <tr><td>Arrow 2/3</td><td class="muted">BMs targeting Israel (~40% of all BMs); high-altitude intercepts</td><td>~17% of Israel-targeted BMs = ~7% of total BMs</td><td>1.25×</td></tr>
+            <tr><td>PAC-3</td><td class="muted">Lower-tier BMs (both theaters), cruise missiles, some drones</td><td>~52% of BMs + 65% of CMs + 15% of drones</td><td>1.6×</td></tr>
+            <tr><td>Iron Dome</td><td class="muted">Short-range rockets, drones over Israel</td><td>65% of drones + 12% of CMs</td><td>1.5×</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:12px"><strong>Shots-per-kill (spk):</strong> Standard doctrine fires 2–3 interceptors per ballistic missile target (shoot-look-shoot or shoot-shoot-look). The spk multiplier converts successful intercepts into interceptors consumed. THAAD and Arrow have high single-shot Pk (~90–95%) yielding lower spk; PAC-3 and Iron Dome use more conservative engagement doctrine.</p>
+        <p><strong>Resupply:</strong> PAC-3 +5/day (Lockheed wartime surge from 650/yr base + multinational pooling); Iron Dome +15/day (expanded Rafael Israel + Raytheon Arkansas co-production). THAAD: 0 (production was 96/yr pre-war; quadrupling to 400/yr signed Jan 2026 but not yet online). Arrow: 0 (~24/yr production, expanded but still insufficient for theater replenishment).</p>
+        <p><strong>Calibration anchors:</strong> Model is tuned so that THAAD reaches operational exhaustion at ~Day 16 (per USNI/DoD reporting) and Arrow reaches critical levels at ~Day 14 (per Semafor, citing US officials). BM engagement fractions do not sum to 1.0 — the ~27% remainder represents intercepts by David's Sling, Aegis/SM-3, and leakers not modelled here.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="caveat">
+    <span class="caveat-icon">⚠</span>
+    <span><strong>Classified data disclaimer:</strong> Interceptor inventories are among the most sensitive military secrets of any conflict — no government publishes them. Every figure here is an open-source estimate. Some numbers may be wrong by a factor of 2 in either direction. The model is calibrated to match publicly reported depletion timelines; treat it as a directional indicator, not a precise count. If you have better data, please contribute to the sources listed below.</span>
+  </div>
+
+  <h2>Sources</h2>
+  <div class="sources">
+    <div class="sources-list">
+      <div class="source-item"><span class="source-outlet">CSIS</span><a href="https://www.csis.org/analysis/depleting-missile-defense-interceptor-inventory" target="_blank">The Depleting Missile Defense Interceptor Inventory</a></div>
+      <div class="source-item"><span class="source-outlet">Semafor</span><a href="https://www.semafor.com/article/03/14/2026/israel-is-running-critically-low-on-interceptors-us-officials-say" target="_blank">Israel is running critically low on interceptors, US officials say</a></div>
+      <div class="source-item"><span class="source-outlet">Military Times</span><a href="https://www.militarytimes.com/news/your-military/2026/03/06/race-of-attrition-us-militarys-finite-interceptor-stockpile-is-being-tested/" target="_blank">'Race of attrition': US military's finite interceptor stockpile</a></div>
+      <div class="source-item"><span class="source-outlet">JINSA</span><a href="https://jinsa.org/us-interceptors-are-depleted-making-iran-decision-difficult/" target="_blank">US Interceptors Are Depleted, Making Iran Decision Difficult</a></div>
+      <div class="source-item"><span class="source-outlet">Defence Security Asia</span><a href="https://defencesecurityasia.com/en/israel-arrow-interceptors-low-iran-missile-barrage-missile-defense-stockpile-crisis/" target="_blank">Israel Running Critically Low on Arrow Interceptors</a></div>
+      <div class="source-item"><span class="source-outlet">Breaking Defense</span><a href="https://breakingdefense.com/2025/07/israel-moves-to-significantly-accelerate-acquisition-of-more-arrow-interceptors/" target="_blank">Israel moves to accelerate Arrow interceptor acquisition</a></div>
+      <div class="source-item"><span class="source-outlet">Army Recognition</span><a href="https://www.armyrecognition.com/news/army-news/2026/u-s-deploys-additional-thaad-and-patriot-pac-3-air-defense-systems-to-middle-east-as-iran-tensions-rise" target="_blank">US Deploys Additional THAAD and Patriot PAC-3 to Middle East</a></div>
+      <div class="source-item"><span class="source-outlet">Asia Times</span><a href="https://asiatimes.com/2026/03/china-watching-as-us-missile-stocks-drain-over-iran/" target="_blank">China watching as US missile stocks drain over Iran</a></div>
+      <div class="source-item"><span class="source-outlet">Times of Israel</span><a href="https://www.timesofisrael.com/amid-claims-of-looming-interceptor-shortage-experts-dismiss-alarm-over-finite-defenses/" target="_blank">Experts on interceptor shortage claims</a></div>
+    </div>
+  </div>
+
+</div><!-- /tab-interceptors -->
+
+<!-- ══ JAVASCRIPT ══════════════════════════════════════════════════════ -->
 <script>
-const d={dates:['Feb 28','Mar 1','Mar 2','Mar 3','Mar 4','Mar 5','Mar 6','Mar 7','Mar 8','Mar 9','Mar 10','Mar 11','Mar 12','Mar 13','Mar 14','Mar 15','Mar 16','Mar 17','Mar 18','Mar 19','Mar 20','Mar 21','Mar 22','Mar 23'],drones:[720,540,420,320,250,200,160,120,90,60,55,50,48,40,30,28,25,35,40,38,42,47,44,40],ballistic:[480,350,280,200,160,130,105,80,55,40,35,30,25,18,12,10,8,10,8,6,5,4,3,3],cruise:[15,12,10,8,6,5,4,3,2,2,2,1,1,1,1,1,0,1,1,0,0,0,0,0],intercept:[92,90,89,88,87,86,85,84,83,82,81,80,79,78,76,75,74,73,72,71,70,69,68,67],hits:[85,70,55,45,40,35,28,22,18,14,12,12,11,10,8,7,6,9,10,9,10,12,11,10],intercepts:[980,720,570,410,320,255,200,152,108,74,65,56,50,39,28,25,21,29,30,27,28,30,27,25]};const g='rgba(255,255,255,0.06)',tc='#666';const o={responsive:true,interaction:{mode:'index',intersect:false},plugins:{legend:{labels:{color:'#aaa',font:{size:11}}}},scales:{x:{ticks:{color:tc,maxRotation:45,font:{size:10}},grid:{color:g}},y:{ticks:{color:tc},grid:{color:g}}}};new Chart(document.getElementById('dailyMunitions'),{type:'line',data:{labels:d.dates,datasets:[{label:'Drones',data:d.drones,borderColor:'#ffa94d',backgroundColor:'rgba(255,169,77,0.15)',fill:true,tension:.3,pointRadius:2},{label:'Ballistic',data:d.ballistic,borderColor:'#ff6b6b',backgroundColor:'rgba(255,107,107,0.15)',fill:true,tension:.3,pointRadius:2},{label:'Cruise',data:d.cruise,borderColor:'#74c0fc',backgroundColor:'rgba(116,192,252,0.15)',fill:true,tension:.3,pointRadius:2}]},options:{...o,scales:{...o.scales,y:{...o.scales.y,stacked:true}}}});new Chart(document.getElementById('interceptRate'),{type:'line',data:{labels:d.dates,datasets:[{label:'Intercept %',data:d.intercept,borderColor:'#ff6b6b',backgroundColor:'rgba(255,107,107,0.1)',fill:true,tension:.3,pointRadius:2}]},options:{...o,scales:{...o.scales,y:{...o.scales.y,min:50,max:100}}}});const cd=[],cb=[],cc=[];let a=0,b=0,c=0;d.drones.forEach((v,i)=>{a+=v;b+=d.ballistic[i];c+=d.cruise[i];cd.push(a);cb.push(b);cc.push(c)});new Chart(document.getElementById('cumulativeBar'),{type:'bar',data:{labels:d.dates,datasets:[{label:'Drones',data:cd,backgroundColor:'rgba(255,169,77,0.7)'},{label:'Ballistic',data:cb,backgroundColor:'rgba(255,107,107,0.7)'},{label:'Cruise',data:cc,backgroundColor:'rgba(116,192,252,0.7)'}]},options:{...o,scales:{...o.scales,x:{...o.scales.x,stacked:true},y:{...o.scales.y,stacked:true}}}});new Chart(document.getElementById('hitsVsIntercepts'),{type:'line',data:{labels:d.dates,datasets:[{label:'Intercepted',data:d.intercepts,borderColor:'#51cf66',backgroundColor:'rgba(81,207,102,0.1)',fill:true,tension:.3,pointRadius:2},{label:'Hits',data:d.hits,borderColor:'#ff6b6b',backgroundColor:'rgba(255,107,107,0.1)',fill:true,tension:.3,pointRadius:2}]},options:o});new Chart(document.getElementById('mixChart'),{type:'line',data:{labels:d.dates,datasets:[{label:'% Drones',data:d.drones.map((v,i)=>{const t=v+d.ballistic[i]+d.cruise[i];return t?Math.round(v/t*100):0}),borderColor:'#ffa94d',tension:.3,pointRadius:2,fill:false},{label:'% Ballistic',data:d.ballistic.map((v,i)=>{const t=d.drones[i]+v+d.cruise[i];return t?Math.round(v/t*100):0}),borderColor:'#ff6b6b',tension:.3,pointRadius:2,fill:false}]},options:{...o,scales:{...o.scales,y:{...o.scales.y,min:0,max:100}}}});
-</script></body></html>
+// ── Shared munitions dataset ──────────────────────────────────────────
+const data = {
+  dates:     ['Feb 28','Mar 1','Mar 2','Mar 3','Mar 4','Mar 5','Mar 6','Mar 7','Mar 8','Mar 9','Mar 10','Mar 11','Mar 12','Mar 13','Mar 14','Mar 15','Mar 16','Mar 17','Mar 18','Mar 19','Mar 20','Mar 21','Mar 22','Mar 23'],
+  drones:    [720,540,420,320,250,200,160,120,90,60,55,50,48,40,30,28,25,35,40,38,42,47,44,40],
+  ballistic: [480,350,280,200,160,130,105,80,55,40,35,30,25,18,12,10,8,10,8,6,5,4,3,3],
+  cruise:    [15,12,10,8,6,5,4,3,2,2,2,1,1,1,1,1,0,1,1,0,0,0,0,0],
+  intercept: [92,90,89,88,87,86,85,84,83,82,81,80,79,78,76,75,74,73,72,71,70,69,68,67],
+  hits:      [85,70,55,45,40,35,28,22,18,14,12,12,11,10,8,7,6,9,10,9,10,12,11,10],
+  intercepts:[980,720,570,410,320,255,200,152,108,74,65,56,50,39,28,25,21,29,30,27,28,30,27,25]
+};
+
+// ── Chart styling defaults ────────────────────────────────────────────
+const grid  = 'rgba(255,255,255,0.05)';
+const ticks = '#6e7681';
+const baseX = { ticks: { color: ticks, maxRotation: 45, font: { size: 10 } }, grid: { color: grid } };
+const baseY = { ticks: { color: ticks, font: { size: 10 } }, grid: { color: grid } };
+const baseLegend = { labels: { color: '#aaa', font: { size: 11 }, boxWidth: 14 } };
+
+// ── Tab switching ─────────────────────────────────────────────────────
+let interceptorChartsReady = false;
+
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (name === 'interceptors' && !interceptorChartsReady) {
+    interceptorChartsReady = true;
+    setTimeout(initInterceptorCharts, 30);
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════════
+//  TAB 1 CHARTS — MUNITIONS
+// ══════════════════════════════════════════════════════════════════════
+let logScale = false;
+const munitionsChart = new Chart(document.getElementById('dailyMunitions'), {
+  type: 'line',
+  data: {
+    labels: data.dates,
+    datasets: [
+      { label: 'Drones',            data: data.drones,    borderColor: '#d29922', backgroundColor: 'rgba(210,153,34,0.18)', fill: 'origin', tension: 0.3, pointRadius: 3, pointHoverRadius: 5 },
+      { label: 'Ballistic Missiles',data: data.ballistic, borderColor: '#f85149', backgroundColor: 'rgba(248,81,73,0.15)',  fill: 'origin', tension: 0.3, pointRadius: 3, pointHoverRadius: 5 },
+      { label: 'Cruise Missiles',   data: data.cruise,    borderColor: '#388bfd', backgroundColor: 'rgba(56,139,253,0.12)', fill: 'origin', tension: 0.3, pointRadius: 3, pointHoverRadius: 5 }
+    ]
+  },
+  options: {
+    responsive: true,
+    interaction: { mode: 'index', intersect: false },
+    plugins: { legend: baseLegend },
+    scales: { x: baseX, y: { ...baseY, type: 'linear', title: { display: true, text: 'Munitions / day', color: ticks, font: { size: 11 } } } }
+  }
+});
+
+function toggleLog() {
+  logScale = !logScale;
+  const btn = document.getElementById('logToggle');
+  btn.classList.toggle('active', logScale);
+  munitionsChart.options.scales.y.type = logScale ? 'logarithmic' : 'linear';
+  munitionsChart.options.scales.y.min  = logScale ? 1 : 0;
+  munitionsChart.update();
+}
+
+new Chart(document.getElementById('interceptRate'), {
+  type: 'line',
+  data: {
+    labels: data.dates,
+    datasets: [{ label: 'Intercept Rate %', data: data.intercept, borderColor: '#f85149', backgroundColor: 'rgba(248,81,73,0.08)', fill: true, tension: 0.3, pointRadius: 3, pointHoverRadius: 5 }]
+  },
+  options: {
+    responsive: true, interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: baseLegend,
+      annotation: {
+        annotations: {
+          line90: { type: 'line', yMin: 90, yMax: 90, borderColor: 'rgba(56,139,253,0.4)', borderWidth: 1, borderDash: [5,4], label: { content: 'Peak (92%)', display: true, position: 'start', color: '#388bfd', font: { size: 10 }, backgroundColor: 'rgba(13,17,23,0.8)' } },
+          line70: { type: 'line', yMin: 70, yMax: 70, borderColor: 'rgba(210,153,34,0.4)', borderWidth: 1, borderDash: [5,4], label: { content: 'Alert (70%)', display: true, position: 'start', color: '#d29922', font: { size: 10 }, backgroundColor: 'rgba(13,17,23,0.8)' } },
+          thaadLine: { type: 'line', xMin: 16, xMax: 16, borderColor: 'rgba(248,81,73,0.35)', borderWidth: 1, borderDash: [4,4], label: { content: 'THAAD est. exhausted', display: true, position: 'start', rotation: 90, color: '#f85149', font: { size: 9 }, backgroundColor: 'rgba(13,17,23,0.8)' } }
+        }
+      }
+    },
+    scales: { x: baseX, y: { ...baseY, min: 50, max: 100, title: { display: true, text: '%', color: ticks, font: { size: 11 } } } }
+  }
+});
+
+const cumD = [], cumB = [], cumC = [];
+let cd = 0, cb = 0, cc = 0;
+data.drones.forEach((v, i) => { cd += v; cb += data.ballistic[i]; cc += data.cruise[i]; cumD.push(cd); cumB.push(cb); cumC.push(cc); });
+
+new Chart(document.getElementById('cumulativeBar'), {
+  type: 'bar',
+  data: { labels: data.dates, datasets: [{ label: 'Drones', data: cumD, backgroundColor: 'rgba(210,153,34,0.75)' }, { label: 'Ballistic', data: cumB, backgroundColor: 'rgba(248,81,73,0.75)' }, { label: 'Cruise', data: cumC, backgroundColor: 'rgba(56,139,253,0.75)' }] },
+  options: { responsive: true, interaction: { mode: 'index', intersect: false }, plugins: { legend: baseLegend }, scales: { x: { ...baseX, stacked: true }, y: { ...baseY, stacked: true } } }
+});
+
+new Chart(document.getElementById('hitsVsIntercepts'), {
+  type: 'line',
+  data: { labels: data.dates, datasets: [
+    { label: 'Intercepted',    data: data.intercepts, borderColor: '#3fb950', backgroundColor: 'rgba(63,185,80,0.12)',  fill: true, tension: 0.3, pointRadius: 3, pointHoverRadius: 5 },
+    { label: 'Confirmed Hits', data: data.hits,       borderColor: '#f85149', backgroundColor: 'rgba(248,81,73,0.12)', fill: true, tension: 0.3, pointRadius: 3, pointHoverRadius: 5 }
+  ]},
+  options: { responsive: true, interaction: { mode: 'index', intersect: false }, plugins: { legend: baseLegend }, scales: { x: baseX, y: { ...baseY, title: { display: true, text: 'Per day', color: ticks, font: { size: 11 } } } } }
+});
+
+new Chart(document.getElementById('mixChart'), {
+  type: 'line',
+  data: { labels: data.dates, datasets: [
+    { label: '% Drones',    data: data.drones.map((v,i)=>{ const t=v+data.ballistic[i]+data.cruise[i]; return t?Math.round(v/t*100):0; }),    borderColor: '#d29922', backgroundColor: 'rgba(210,153,34,0.1)', fill: true, tension: 0.3, pointRadius: 3, pointHoverRadius: 5 },
+    { label: '% Ballistic', data: data.ballistic.map((v,i)=>{ const t=data.drones[i]+v+data.cruise[i]; return t?Math.round(v/t*100):0; }), borderColor: '#f85149', backgroundColor: 'rgba(248,81,73,0.08)', fill: true, tension: 0.3, pointRadius: 3, pointHoverRadius: 5 }
+  ]},
+  options: { responsive: true, interaction: { mode: 'index', intersect: false }, plugins: { legend: baseLegend }, scales: { x: baseX, y: { ...baseY, min: 0, max: 100, title: { display: true, text: '% of daily launches', color: ticks, font: { size: 11 } } } } }
+});
+
+
+// ══════════════════════════════════════════════════════════════════════
+//  TAB 2 — INTERCEPTOR INVENTORY MODEL
+// ══════════════════════════════════════════════════════════════════════
+
+// ── Model parameters (see methodology section) ──
+const SYSTEMS = {
+  thaad:    { label: 'THAAD',           short: 'THAAD',      start: 350,  color: '#388bfd', bmFrac: 0.146, cmFrac: 0.04,  droneFrac: 0.00, spk: 1.3,  resupply: 0,  icon: '🇺🇸', coverage: 'Gulf States' },
+  arrow:    { label: 'Arrow (A2/A3)',   short: 'Arrow',      start: 170,  color: '#3fb950', bmFrac: 0.066, cmFrac: 0.00,  droneFrac: 0.00, spk: 1.25, resupply: 0,  icon: '🇮🇱', coverage: 'Israel' },
+  pac3:     { label: 'Patriot PAC-3',   short: 'PAC-3',      start: 2200, color: '#d29922', bmFrac: 0.52,  cmFrac: 0.65,  droneFrac: 0.15, spk: 1.6,  resupply: 5,  icon: '🌍', coverage: 'All theaters' },
+  ironDome: { label: 'Iron Dome',       short: 'Iron Dome',  start: 4000, color: '#a371f7', bmFrac: 0.00,  cmFrac: 0.12,  droneFrac: 0.65, spk: 1.5,  resupply: 15, icon: '🇮🇱', coverage: 'Israel (short-range)' }
+};
+
+// Compute daily remaining stocks
+function computeStocks() {
+  const stocks = {};
+  const daily  = [];
+  const usage  = [];
+  Object.keys(SYSTEMS).forEach(k => { stocks[k] = SYSTEMS[k].start; });
+
+  data.dates.forEach((_, i) => {
+    const ir   = data.intercept[i] / 100;
+    const bmI  = data.ballistic[i] * ir;
+    const cmI  = data.cruise[i]    * ir;
+    const drI  = data.drones[i]    * ir;
+    const dayUse = {};
+
+    Object.keys(SYSTEMS).forEach(k => {
+      const s   = SYSTEMS[k];
+      const raw = (bmI * s.bmFrac + cmI * s.cmFrac + drI * s.droneFrac) * s.spk;
+      const use = Math.min(raw, stocks[k]);
+      stocks[k] = Math.max(0, stocks[k] - use + s.resupply);
+      dayUse[k] = use;
+    });
+
+    daily.push({ ...stocks });
+    usage.push({ ...dayUse });
+  });
+
+  return { daily, usage };
+}
+
+const { daily: stockHistory, usage: usageHistory } = computeStocks();
+const lastDay = stockHistory[stockHistory.length - 1];
+
+// ── Build KPI cards ──
+const kpiContainer = document.getElementById('interceptor-kpis');
+const statusOf = (rem, start) => {
+  const pct = rem / start;
+  if (pct <= 0.03) return ['EXHAUSTED', 'status-exhausted', 'red'];
+  if (pct <= 0.15) return ['CRITICAL',  'status-critical',  'orange'];
+  if (pct <= 0.35) return ['LOW',       'status-low',       'yellow'];
+  return                  ['ACTIVE',    'status-active',    'green'];
+};
+const accentOf = (_, start, rem) => {
+  const p = rem/start;
+  if (p <= 0.03) return 'accent-red';
+  if (p <= 0.15) return 'accent-orange';
+  if (p <= 0.35) return 'accent-yellow';
+  return 'accent-green';
+};
+const burnOf = (k) => {
+  // daily burn at current rate (last day)
+  const ir = data.intercept[data.intercept.length-1] / 100;
+  const bmI  = data.ballistic[data.ballistic.length-1] * ir;
+  const cmI  = data.cruise[data.cruise.length-1]    * ir;
+  const drI  = data.drones[data.drones.length-1]    * ir;
+  const s = SYSTEMS[k];
+  return Math.max(0, (bmI * s.bmFrac + cmI * s.cmFrac + drI * s.droneFrac) * s.spk - s.resupply);
+};
+
+Object.keys(SYSTEMS).forEach(k => {
+  const s     = SYSTEMS[k];
+  const rem   = Math.round(lastDay[k]);
+  const pct   = Math.round(rem / s.start * 100);
+  const [statusTxt, statusCls, colorCls] = statusOf(rem, s.start);
+  const accentCls = accentOf(k, s.start, rem);
+  const burn  = burnOf(k);
+  const runway = burn > 0 ? Math.round(rem / burn) : 999;
+  const runwayTxt = runway >= 999 ? '∞' : runway + 'd';
+
+  kpiContainer.innerHTML += `
+    <div class="kpi ${accentCls}">
+      <div class="kpi-icon">${s.icon} ${s.short}</div>
+      <div class="kpi-value ${colorCls}">${rem === 0 ? '0' : rem.toLocaleString()}</div>
+      <div class="kpi-label">${s.label} — ${s.coverage}</div>
+      <div class="kpi-delta" style="color:#6e7681">${pct}% of start · ${s.start.toLocaleString()} est. Day 1</div>
+      <span class="kpi-status ${statusCls}">${statusTxt}</span>
+      ${burn > 0 && rem > 0 ? `<div class="kpi-delta" style="color:#6e7681;margin-top:4px">~${runwayTxt} at current rate</div>` : ''}
+    </div>`;
+});
+
+// ── Interceptor charts (lazy-init on first tab switch) ────────────────
+function initInterceptorCharts() {
+const keys   = Object.keys(SYSTEMS);
+const colors = keys.map(k => SYSTEMS[k].color);
+const labels = keys.map(k => SYSTEMS[k].label);
+
+// Chart 1: Inventory over time
+new Chart(document.getElementById('invOverTime'), {
+  type: 'line',
+  data: {
+    labels: data.dates,
+    datasets: keys.map(k => ({
+      label: SYSTEMS[k].label,
+      data:  stockHistory.map(d => Math.round(d[k])),
+      borderColor: SYSTEMS[k].color,
+      backgroundColor: SYSTEMS[k].color + '18',
+      fill: false,
+      tension: 0.3, pointRadius: 3, pointHoverRadius: 5
+    }))
+  },
+  options: {
+    responsive: true, interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: baseLegend,
+      annotation: {
+        annotations: {
+          thaadEx: { type: 'line', xMin: 15, xMax: 15, borderColor: 'rgba(248,81,73,0.45)', borderWidth: 1, borderDash: [4,4], label: { content: 'THAAD est. exhausted', display: true, position: 'start', rotation: 90, color: '#f85149', font: { size: 10, weight: '600' }, backgroundColor: 'rgba(13,17,23,0.9)', padding: { x: 5, y: 3 } } },
+          arrowLow: { type: 'line', xMin: 13, xMax: 13, borderColor: 'rgba(63,185,80,0.45)',  borderWidth: 1, borderDash: [4,4], label: { content: 'Arrow critically low',   display: true, position: 'end',   rotation: 90, color: '#3fb950', font: { size: 10, weight: '600' }, backgroundColor: 'rgba(13,17,23,0.9)', padding: { x: 5, y: 3 } } }
+        }
+      }
+    },
+    scales: {
+      x: baseX,
+      y: { ...baseY, title: { display: true, text: 'Estimated interceptors remaining', color: ticks, font: { size: 11 } } }
+    }
+  }
+});
+
+// Chart 2: % remaining (normalised)
+new Chart(document.getElementById('invPct'), {
+  type: 'line',
+  data: {
+    labels: data.dates,
+    datasets: keys.map(k => ({
+      label: SYSTEMS[k].label,
+      data: stockHistory.map(d => Math.round(d[k] / SYSTEMS[k].start * 100)),
+      borderColor: SYSTEMS[k].color,
+      fill: false, tension: 0.3, pointRadius: 3, pointHoverRadius: 5
+    }))
+  },
+  options: {
+    responsive: true, interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: baseLegend,
+      annotation: {
+        annotations: {
+          line25: { type: 'line', yMin: 25, yMax: 25, borderColor: 'rgba(210,153,34,0.4)', borderWidth: 1, borderDash: [5,4], label: { content: 'Critical (25%)', display: true, position: 'start', color: '#d29922', font: { size: 9 }, backgroundColor: 'rgba(13,17,23,0.8)' } }
+        }
+      }
+    },
+    scales: { x: baseX, y: { ...baseY, min: 0, max: 100, title: { display: true, text: '% of Day 1 stock', color: ticks, font: { size: 11 } } } }
+  }
+});
+
+// Chart 3: Daily usage stacked bar
+new Chart(document.getElementById('invUsage'), {
+  type: 'bar',
+  data: {
+    labels: data.dates,
+    datasets: keys.map(k => ({
+      label: SYSTEMS[k].label,
+      data: usageHistory.map(d => Math.round(d[k])),
+      backgroundColor: SYSTEMS[k].color + 'bb'
+    }))
+  },
+  options: {
+    responsive: true, interaction: { mode: 'index', intersect: false },
+    plugins: { legend: baseLegend },
+    scales: { x: { ...baseX, stacked: true }, y: { ...baseY, stacked: true, title: { display: true, text: 'Interceptors used', color: ticks, font: { size: 11 } } } }
+  }
+});
+
+// Chart 4: Current runway — horizontal bar chart
+// Compute latest-day runway for each system
+const lastIdx = data.dates.length - 1;
+const lastStock = stockHistory[lastIdx];
+const runwayBars = keys.map(k => {
+  const ir  = data.intercept[lastIdx] / 100;
+  const bmI = data.ballistic[lastIdx] * ir;
+  const cmI = data.cruise[lastIdx]    * ir;
+  const drI = data.drones[lastIdx]    * ir;
+  const s   = SYSTEMS[k];
+  const netBurn = Math.max(0, (bmI * s.bmFrac + cmI * s.cmFrac + drI * s.droneFrac) * s.spk - s.resupply);
+  const rem  = lastStock[k];
+  return netBurn > 0 ? Math.round(rem / netBurn) : (rem > 0 ? 999 : 0);
+});
+const maxRunway = Math.min(Math.max(...runwayBars.filter(v => v < 999)), 120) + 15;
+
+new Chart(document.getElementById('invRunway'), {
+  type: 'bar',
+  data: {
+    labels: keys.map(k => SYSTEMS[k].short),
+    datasets: [{
+      data: runwayBars.map(v => Math.min(v, maxRunway)),
+      backgroundColor: runwayBars.map(v => v <= 0 ? '#f8514980' : v <= 7 ? '#f8514980' : v <= 30 ? '#d2992280' : '#3fb95080'),
+      borderColor: runwayBars.map(v => v <= 0 ? '#f85149' : v <= 7 ? '#f85149' : v <= 30 ? '#d29922' : '#3fb950'),
+      borderWidth: 1.5,
+      borderRadius: 4,
+      barPercentage: 0.6
+    }]
+  },
+  plugins: [{
+    id: 'barLabels',
+    afterDatasetsDraw(chart) {
+      const ctx = chart.ctx;
+      const chartRight = chart.chartArea.right;
+      chart.getDatasetMeta(0).data.forEach((bar, i) => {
+        const val = runwayBars[i];
+        const txt = val <= 0 ? 'EXHAUSTED' : val >= 999 ? '∞ days' : val + ' days';
+        ctx.save();
+        ctx.font = 'bold 12px Inter, system-ui, sans-serif';
+        const textW = ctx.measureText(txt).width;
+        const spaceRight = chartRight - bar.x;
+        if (spaceRight < textW + 16) {
+          ctx.fillStyle = '#f0f6fc';
+          ctx.textAlign = 'right';
+          ctx.fillText(txt, bar.x - 8, bar.y);
+        } else {
+          ctx.fillStyle = val <= 7 ? '#f85149' : val <= 30 ? '#d29922' : '#3fb950';
+          ctx.textAlign = 'left';
+          ctx.fillText(txt, bar.x + 8, bar.y);
+        }
+        ctx.textBaseline = 'middle';
+        ctx.restore();
+      });
+    }
+  }],
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: (ctx) => {
+            const val = runwayBars[ctx.dataIndex];
+            return val <= 0 ? 'Exhausted' : val >= 999 ? 'Unlimited (no net burn)' : val + ' days of stock';
+          }
+        }
+      },
+      annotation: {
+        annotations: {
+          line7: { type: 'line', xMin: 7, xMax: 7, borderColor: 'rgba(248,81,73,0.35)', borderWidth: 1, borderDash: [5,4], label: { content: '7-day critical', display: true, position: 'start', color: '#f85149', font: { size: 9 }, backgroundColor: 'rgba(13,17,23,0.8)', padding: { x: 4, y: 2 } } },
+          line30: { type: 'line', xMin: 30, xMax: 30, borderColor: 'rgba(210,153,34,0.35)', borderWidth: 1, borderDash: [5,4], label: { content: '30-day warning', display: true, position: 'start', color: '#d29922', font: { size: 9 }, backgroundColor: 'rgba(13,17,23,0.8)', padding: { x: 4, y: 2 } } }
+        }
+      }
+    },
+    scales: {
+      x: { ...baseY, min: 0, max: maxRunway, title: { display: true, text: 'Days of stock remaining', color: ticks, font: { size: 11 } } },
+      y: { ...baseX, grid: { display: false } }
+    }
+  }
+});
+
+// Chart 5: Resupply vs consumption (PAC-3 and Iron Dome only)
+const resupplyKeys = ['pac3', 'ironDome'];
+new Chart(document.getElementById('invResupply'), {
+  type: 'bar',
+  data: {
+    labels: data.dates,
+    datasets: [
+      ...resupplyKeys.map(k => ({
+        label: SYSTEMS[k].label + ' — used',
+        data: usageHistory.map(d => -Math.round(d[k])),
+        backgroundColor: SYSTEMS[k].color + '80',
+        stack: k
+      })),
+      ...resupplyKeys.map(k => ({
+        label: SYSTEMS[k].label + ' — resupply',
+        data: data.dates.map(() => SYSTEMS[k].resupply),
+        backgroundColor: SYSTEMS[k].color,
+        stack: k
+      }))
+    ]
+  },
+  options: {
+    responsive: true, interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: { ...baseLegend, labels: { ...baseLegend.labels, boxWidth: 10 } },
+      annotation: {
+        annotations: {
+          zero: { type: 'line', yMin: 0, yMax: 0, borderColor: 'rgba(255,255,255,0.15)', borderWidth: 1 }
+        }
+      }
+    },
+    scales: {
+      x: baseX,
+      y: { ...baseY, title: { display: true, text: 'Interceptors / day  (negative = consumed)', color: ticks, font: { size: 11 } } }
+    }
+  }
+});
+} // end initInterceptorCharts
+</script>
+</body>
+</html>
