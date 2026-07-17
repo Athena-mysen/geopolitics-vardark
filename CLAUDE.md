@@ -4,7 +4,7 @@ Iran Conflict Tracker — geopolitics.vardark.no
 
 ## Stack
 - **Ren HTML** — enkel `index.html`, ingen byggesteg
-- **Deploy:** Trolig Cloudflare Pages (sjekk .github/workflows/ eller repo settings)
+- **Deploy:** Cloudflare Pages via eksplisitt Wrangler-deploy; repoet har ingen GitHub Actions- eller Git-integrasjonsdeploy
 - Statisk side, ingen avhengigheter
 
 ## Innhold

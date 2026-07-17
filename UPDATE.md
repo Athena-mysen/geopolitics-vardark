@@ -1,23 +1,25 @@
-# Iran Conflict Tracker — Daily Update Instructions
+# Iran Conflict Tracker — Archive and former update instructions
 
 **Live site:** https://geopolitics.vardark.no
 **GitHub repo:** https://github.com/Athena-mysen/geopolitics-vardark
 **Cloudflare project:** `geopolitics-vardark`
 
-Credentials (Cloudflare token, GitHub PAT) are stored only in the scheduled task prompt — not in this file.
+> **Archived 2026-07-17:** The last historical snapshot is 19 April 2026. Do not resume data updates without an explicit decision to restart the tracker.
+
+Cloudflare deployment uses the existing 1Password item `Athena Cloudflare API token`; the secret is never stored in this repository.
 
 ---
 
-## How the daily update works
+## Former daily update workflow
 
-Each day the scheduled task:
+The former scheduled task:
 1. Clones the GitHub repo to `/tmp/tracker`
 2. Appends today's conflict figures to the `const data` arrays in `index.html`
 3. Updates the header date and day counter
 4. Commits and pushes back to GitHub
 5. Deploys `index.html` to Cloudflare Pages via wrangler
 
-The **repo is the source of truth**. Cloudflare Pages always reflects the latest commit on `main`.
+The **repo is the source of truth**, but Cloudflare Pages does **not** deploy automatically from `main`. A separate Wrangler deployment is required.
 
 ---
 
@@ -84,15 +86,16 @@ git commit -m "Data update: $(date +'%b %d %Y')"
 git push https://<GITHUB_USER>:<GITHUB_PAT>@github.com/Athena-mysen/geopolitics-vardark.git main
 ```
 
-### 6. Deploy to Cloudflare
+### 6. Deploy to Cloudflare when explicitly reactivated
 
 ```bash
 mkdir -p /tmp/deploy-pages
 cp /tmp/tracker/index.html /tmp/deploy-pages/index.html
+cp /tmp/tracker/_headers /tmp/deploy-pages/_headers
 cd /tmp && \
-  CLOUDFLARE_API_TOKEN="<CF_TOKEN>" \
+  CLOUDFLARE_API_TOKEN="op://Athena sandbox/Athena Cloudflare API token/credential" \
   CLOUDFLARE_ACCOUNT_ID="fc26b142068c6a967a58970d4b7f7e71" \
-  npx wrangler pages deploy /tmp/deploy-pages \
+  op run -- npx wrangler pages deploy /tmp/deploy-pages \
     --project-name=geopolitics-vardark \
     --commit-dirty=true
 ```
