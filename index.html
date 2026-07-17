@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Iran Conflict Tracker — March 25, 2026</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/3.0.1/chartjs-plugin-annotation.min.js"></script>
+<title>Iran Conflict Tracker — Archived March 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" integrity="sha384-bs/nf9FbdNouRbMiFcrcZfLXYPKiPaGVGplVbv7dLGECccEXDW+S3zjqSKR5ZEaD" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/3.0.1/chartjs-plugin-annotation.min.js" integrity="sha384-oNtu+d18330MVFpltUTve1DatxCkkctlpA2AC3GulbVFOSqhHdDat3qHse/Lbuek" crossorigin="anonymous"></script>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -32,6 +32,17 @@
   }
   .subtitle { color: #8b949e; font-size: 0.9em; margin-top: 6px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
   .subtitle-sep { color: #30363d; }
+  .archive-notice {
+    background: rgba(88, 166, 255, 0.08);
+    border: 1px solid rgba(88, 166, 255, 0.35);
+    border-left: 3px solid #58a6ff;
+    border-radius: 8px;
+    color: #c9d1d9;
+    font-size: 0.9em;
+    margin: 20px 0;
+    padding: 14px 18px;
+  }
+  .archive-notice strong { color: #79c0ff; }
 
   /* ── Day strip ───────────────────────────────────── */
   .day-strip { display: flex; gap: 12px; margin-bottom: 20px; align-items: center; }
@@ -203,16 +214,22 @@
 <!-- ══ SHARED HEADER ══════════════════════════════════════════════════ -->
 <div class="header">
   <div class="header-top">
-    <h1>Iran Conflict Tracker</h1>
-    <span class="conflict-badge">&#x25CF; Active Conflict</span>
+    <h1>Iran Conflict Tracker — Archive</h1>
+    <span class="conflict-badge">&#x25CF; Historical Snapshot</span>
   </div>
   <div class="subtitle">
-    <span>Daily Briefing — April 19, 2026</span>
+    <span>Historical snapshot — April 19, 2026</span>
     <span class="subtitle-sep">|</span>
     <span>Conflict start: February 28, 2026</span>
     <span class="subtitle-sep">|</span>
     <span>Updated: April 19, 2026 · 12:00 UTC</span>
   </div>
+</div>
+
+<div class="archive-notice" role="note">
+  <strong>Archived:</strong> The phase of the conflict tracked here is over, and this site is no longer updated.
+  The figures, assessments and source links below are preserved as a historical snapshot from April 19, 2026;
+  they must not be treated as current reporting or current estimates.
 </div>
 
 <div class="day-strip">

@@ -8,7 +8,7 @@ Iran Conflict Tracker — geopolitics.vardark.no
 - Statisk side, ingen avhengigheter
 
 ## Innhold
-- Daglig oppdatert ammunisjonstracker (missiler, droner, interceptor-estimater)
+- Historisk snapshot av ammunisjonstrackeren per 19. april 2026 — ikke lenger oppdatert
 - Tab-basert layout: munitions → interceptors → metodikk
 - Datakilder: OSINT, DoD-rapporter, nyhetsbyråer
 
@@ -21,5 +21,5 @@ Iran Conflict Tracker — geopolitics.vardark.no
 Les `LEARNINGS.md` — akkumulerte feil og lærdommer fra tidligere økter. Oppdater den etter hver kodeøkt med det du lærte.
 
 ## Før push
-1. Åpne `index.html` lokalt og sjekk alle tabs
+1. Åpne `index.html` lokalt og sjekk at arkivmeldingen og alle tabs vises
 2. Test mobil viewport
